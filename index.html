@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Radhe Naam Jap</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* =========================
+   SCREEN SYSTEM
+========================= */
+
+.screen {
+  min-height: 100vh;
+  width: 100%;
+  display: none;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+#welcomeScreen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.4),
+      rgba(0,0,0,0.55)
+    ),
+    url("god-wallpaper.jpg")
+    center/cover no-repeat;
+}
+
+.welcome-box {
+  padding: 30px;
+  max-width: 420px;
+}
+
+.welcome-title {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px black;
+}
+
+.welcome-subtitle {
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 8px black;
+}
+
+.main-button {
+  width: 250px;
+  padding: 16px;
+  margin: 8px;
+  border: none;
+  border-radius: 15px;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+/* =========================
+   MODE SCREEN
+========================= */
+
+#modeScreen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.6)
+    ),
+    url("god-wallpaper.jpg")
+    center/cover no-repeat;
+}
+
+.mode-box {
+  max-width: 420px;
+  padding: 25px;
+}
+
+.mode-title {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.mode-button {
+  display: block;
+  width: 280px;
+  margin: 15px auto;
+  padding: 20px;
+  border: none;
+  border-radius: 18px;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.mode-description {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* =========================
+   TARGET SCREEN
+========================= */
+
+#targetScreen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.6)
+    ),
+    url("god-wallpaper.jpg")
+    center/cover no-repeat;
+}
+
+.target-box {
+  max-width: 450px;
+  padding: 20px;
+}
+
+.target-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.target-button {
+  padding: 12px 18px;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+#customTarget {
+  width: 220px;
+  padding: 13px;
+  margin: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+}
+
+#startTargetButton {
+  display: block;
+  margin: 10px auto;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 14px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* =========================
+   CHANT SCREEN
+========================= */
+
+#chantScreen {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.3),
+      rgba(0,0,0,0.5)
+    ),
+    url("god-wallpaper.jpg")
+    center/cover no-repeat;
+}
+
+#chantArea {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.chant-title {
+  font-size: 35px;
+  text-shadow: 0 2px 8px black;
+}
+
+#count {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0 2px 8px black;
+  margin: 10px;
+}
+
+#mala {
+  font-size: 23px;
+  text-shadow: 0 2px 8px black;
+  margin: 5px;
+}
+
+#targetInfo {
+  font-size: 18px;
+  text-shadow: 0 2px 8px black;
+  margin: 5px;
+}
+
+#tapMessage {
+  font-size: 18px;
+  text-shadow: 0 2px 8px black;
+  margin-top: 20px;
+}
+
+.top-button {
+  position: fixed;
+  top: 15px;
+  z-index: 20;
+
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+#saveButton {
+  right: 15px;
+}
+
+#achievementButton {
+  right: 85px;
+}
+
+#backButton {
+  left: 15px;
+}
+
+/* =========================
+   RADHA ANIMATION
+========================= */
+
+.floating-radha {
+  position: fixed;
+  z-index: 30;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  pointer-events: none;
+
+  animation:
+    fadeRadha 3s ease-out forwards;
+
+  text-shadow: 0 2px 8px black;
+}
+
+@keyframes fadeRadha {
+
+  0% {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  60% {
+    opacity: 0.7;
+    transform:
+      translateY(-45px)
+      scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translateY(-90px)
+      scale(1.1);
+  }
+
+}
+
+/* =========================
+   FLOWER CELEBRATION
+========================= */
+
+.flower {
+  position: fixed;
+  z-index: 50;
+
+  font-size: 35px;
+  pointer-events: none;
+
+  animation:
+    flowerSpread 3s ease-out forwards;
+}
+
+@keyframes flowerSpread {
+
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      scale(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      scale(2.5);
+  }
+
+}
+
+/* =========================
+   ACHIEVEMENTS PAGE
+========================= */
+
+#achievementScreen {
+  display: none;
+  min-height: 100vh;
+  background: #050505;
+  padding: 20px 15px 40px;
+  overflow-y: auto;
+}
+
+#achievementScreen.active {
+  display: block;
+}
+
+.achievement-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+
+.achievement-back {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 38px;
+  padding: 0 5px;
+}
+
+.achievement-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.badge-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 38px;
+  height: 38px;
+
+  margin-left: 5px;
+
+  border-radius: 50%;
+
+  background: #392700;
+  color: #ffd34d;
+
+  font-weight: bold;
+}
+
+.achievement-subtitle {
+  color: #999;
+  font-size: 16px;
+  margin: 5px 0 25px 55px;
+}
+
+.badge-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 22px 18px;
+
+  max-width: 700px;
+  margin: auto;
+}
+
+.badge-card {
+  text-align: center;
+  cursor: pointer;
+}
+
+.badge-circle {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  max-width: 190px;
+  margin: auto;
+
+  border-radius: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle,
+      #fff4bd 0%,
+      #ffc75a 18%,
+      #ff8d6b 48%,
+      #ff6090 100%
+    );
+
+  box-shadow:
+    0 0 12px #ffbd55,
+    0 0 30px #ff8c70;
+
+  border: 2px solid #ffd978;
+}
+
+.badge-circle::before {
+  content: "✦  ✧  ✦  ✧  ✦";
+
+  position: absolute;
+
+  width: 160%;
+  height: 160%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 42px;
+
+  color: #fff2b5;
+
+  opacity: 0.35;
+
+  transform: rotate(-20deg);
+}
+
+.badge-inner {
+  width: 76%;
+  height: 76%;
+
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  z-index: 2;
+
+  border: 2px solid #ffeaa0;
+
+  box-shadow:
+    inset 0 0 18px #fff6bd,
+    0 0 10px #fff2a5;
+
+  background:
+    radial-gradient(
+      circle,
+      #ffd978,
+      #ef9b5f 65%,
+      #df6580
+    );
+}
+
+.badge-number {
+  font-size: clamp(22px, 6vw, 34px);
+  font-weight: bold;
+  color: #fff3bc;
+
+  text-shadow:
+    0 2px 5px #8b4a1f;
+}
+
+.badge-label {
+  font-size: 10px;
+  color: white;
+  margin-top: 5px;
+}
+
+.badge-name {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.badge-status {
+  margin-top: 7px;
+  color: #d5a928;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* LOCKED BADGES */
+
+.badge-card.locked {
+  opacity: 0.28;
+  filter: grayscale(0.8);
+}
+
+.badge-card.locked .badge-circle {
+  box-shadow: none;
+}
+
+.lock-icon {
+  position: absolute;
+  z-index: 5;
+
+  right: 10px;
+  top: 10px;
+
+  background: #111c;
+  border-radius: 50%;
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+/* =========================
+   BADGE UNLOCK POPUP
+========================= */
+
+#badgePopup {
+  position: fixed;
+  inset: 0;
+
+  z-index: 100;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.82);
+
+  text-align: center;
+}
+
+#badgePopup.show {
+  display: flex;
+}
+
+.popup-box {
+  width: 88%;
+  max-width: 350px;
+
+  padding: 30px 20px;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffbd61,
+      #ff6f91
+    );
+
+  box-shadow:
+    0 0 30px #ffd36b,
+    0 0 80px #ff7e86;
+
+  animation:
+    popupIn 0.5s ease;
+}
+
+@keyframes popupIn {
+
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+.popup-icon {
+  font-size: 55px;
+}
+
+.popup-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.popup-message {
+  font-size: 18px;
+}
+
+.popup-button {
+  margin-top: 20px;
+  padding: 13px 30px;
+
+  border: none;
+  border-radius: 15px;
+
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 420px) {
+
+  .badge-grid {
+    gap: 20px 12px;
+  }
+
+  .achievement-title {
+    font-size: 25px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     WELCOME
+========================= -->
+
+<div id="welcomeScreen" class="screen active">
+
+  <div class="welcome-box">
+
+    <div class="welcome-title">
+      🌸 राधे 🌸
+    </div>
+
+    <div class="welcome-subtitle">
+      Radhe Naam Jap Counter
+    </div>
+
+    <button
+      class="main-button"
+      onclick="showModeScreen()">
+
+      🙏 START JAP
+
+    </button>
+
+    <button
+      class="main-button"
+      onclick="showAchievements()">
+
+      🏆 MY ACHIEVEMENTS
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     MODE SCREEN
+========================= -->
+
+<div id="modeScreen" class="screen">
+
+  <div class="mode-box">
+
+    <div class="mode-title">
+      Choose Jap Mode
+    </div>
+
+    <button
+      class="mode-button"
+      onclick="startUnlimited()">
+
+      ♾️ Unlimited Jap
+
+      <div class="mode-description">
+        Chant without a target
+      </div>
+
+    </button>
+
+    <button
+      class="mode-button"
+      onclick="showTargetScreen()">
+
+      🎯 Targeted Jap
+
+      <div class="mode-description">
+        Choose your target
+      </div>
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     TARGET SCREEN
+========================= -->
+
+<div id="targetScreen" class="screen">
+
+  <div class="target-box">
+
+    <div class="target-title">
+      🎯 Choose Your Target
+    </div>
+
+    <button
+      class="target-button"
+      onclick="selectTarget(11)">
+      11
+    </button>
+
+    <button
+      class="target-button"
+      onclick="selectTarget(21)">
+      21
+    </button>
+
+    <button
+      class="target-button"
+      onclick="selectTarget(51)">
+      51
+    </button>
+
+    <button
+      class="target-button"
+      onclick="selectTarget(108)">
+      108
+    </button>
+
+    <button
+      class="target-button"
+      onclick="selectTarget(1080)">
+      1080
+    </button>
+
+    <br>
+
+    <input
+      id="customTarget"
+      type="number"
+      min="1"
+      placeholder="Enter custom target">
+
+    <button
+      id="startTargetButton"
+      onclick="startTargeted()">
+
+      🌸 START TARGET
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     CHANT SCREEN
+========================= -->
+
+<div id="chantScreen" class="screen">
+
+  <button
+    id="backButton"
+    class="top-button"
+    onclick="goHome()">
+
+    ← Back
+
+  </button>
+
+  <button
+    id="achievementButton"
+    class="top-button"
+    onclick="showAchievements()">
+
+    🏆
+
+  </button>
+
+  <button
+    id="saveButton"
+    class="top-button"
+    onclick="saveSession()">
+
+    💾 Save
+
+  </button>
+
+
+  <div
+    id="chantArea"
+    onclick="handleChant(event)">
+
+    <div class="chant-title">
+      🌸 राधे 🌸
+    </div>
+
+    <div id="count">
+      0
+    </div>
+
+    <div id="mala">
+      📿 Mala: 0
+    </div>
+
+    <div id="targetInfo">
+      ♾️ Unlimited
+    </div>
+
+    <div id="tapMessage">
+      Tap anywhere to chant 🙏
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     ACHIEVEMENTS SCREEN
+========================= -->
+
+<div id="achievementScreen">
+
+  <div class="achievement-header">
+
+    <button
+      class="achievement-back"
+      onclick="closeAchievements()">
+
+      ←
+
+    </button>
+
+    <div class="achievement-title">
+
+      🏆 My Achievements
+
+      <span
+        id="unlockedCount"
+        class="badge-count">
+
+        0
+
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <div class="achievement-subtitle">
+    Tap a badge to share it
+  </div>
+
+
+  <div
+    id="badgeGrid"
+    class="badge-grid">
+  </div>
+
+</div>
+
+
+<!-- =========================
+     BADGE POPUP
+========================= -->
+
+<div id="badgePopup">
+
+  <div class="popup-box">
+
+    <div class="popup-icon">
+      🏆
+    </div>
+
+    <div class="popup-title">
+      Badge Unlocked!
+    </div>
+
+    <div
+      id="popupMessage"
+      class="popup-message">
+    </div>
+
+    <button
+      class="popup-button"
+      onclick="closeBadgePopup()">
+
+      🌸 Continue Jap
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   APP VARIABLES
+========================= */
+
+let count = 0;
+
+let target = null;
+
+let mode = "unlimited";
+
+let selectedTarget = 108;
+
+
+/* =========================
+   BADGE DATA
+========================= */
+
+const badges = [
+
+  {
+    value: 1,
+    name: "First Jap"
+  },
+
+  {
+    value: 108,
+    name: "First Mala"
+  },
+
+  {
+    value: 1080,
+    name: "Dedicated"
+  },
+
+  {
+    value: 2100,
+    name: "Devotee"
+  },
+
+  {
+    value: 5004,
+    name: "Bhakti"
+  },
+
+  {
+    value: 10008,
+    name: "Sadhak"
+  },
+
+  {
+    value: 21006,
+    name: "Seva"
+  },
+
+  {
+    value: 50000,
+    name: "Maha Jap"
+  },
+
+  {
+    value: 100000,
+    name: "Laksh Jap"
+  },
+
+  {
+    value: 216000,
+    name: "Mahabhakt"
+  },
+
+  {
+    value: 300300,
+    name: "Radha Naam Master"
+  }
+
+];
+
+
+/* =========================
+   TOTAL JAP
+========================= */
+
+let totalJap =
+  Number(
+    localStorage.getItem(
+      "radheTotalJap"
+    )
+  ) || 0;
+
+
+/* =========================
+   UNLOCKED BADGES
+========================= */
+
+let unlockedBadges =
+  JSON.parse(
+    localStorage.getItem(
+      "radheUnlockedBadges"
+    ) || "[]"
+  );
+
+
+/* =========================
+   SCREEN CONTROL
+========================= */
+
+function showScreen(id) {
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(function(screen) {
+
+      screen.classList.remove("active");
+
+    });
+
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+
+  document
+    .getElementById(
+      "achievementScreen"
+    )
+    .classList.remove("active");
+
+}
+
+
+function showModeScreen() {
+
+  showScreen("modeScreen");
+
+}
+
+
+function showTargetScreen() {
+
+  showScreen("targetScreen");
+
+}
+
+
+function goHome() {
+
+  showScreen("welcomeScreen");
+
+}
+
+
+/* =========================
+   ACHIEVEMENT SCREEN
+========================= */
+
+function showAchievements() {
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(function(screen) {
+
+      screen.classList.remove("active");
+
+    });
+
+
+  document
+    .getElementById(
+      "achievementScreen"
+    )
+    .classList.add("active");
+
+
+  renderBadges();
+
+}
+
+
+function closeAchievements() {
+
+  showScreen("welcomeScreen");
+
+}
+
+
+/* =========================
+   FORMAT NUMBERS
+========================= */
+
+function formatNumber(number) {
+
+  return number.toLocaleString("en-IN");
+
+}
+
+
+/* =========================
+   RENDER BADGES
+========================= */
+
+function renderBadges() {
+
+  const grid =
+    document.getElementById(
+      "badgeGrid"
+    );
+
+  grid.replaceChildren();
+
+
+  let unlockedCount = 0;
+
+
+  badges.forEach(function(badge) {
+
+    const unlocked =
+      totalJap >= badge.value;
+
+
+    if (unlocked) {
+      unlockedCount++;
+    }
+
+
+    const card =
+      document.createElement(
+        "div"
+      );
+
+
+    card.className =
+      "badge-card";
+
+
+    if (!unlocked) {
+      card.classList.add("locked");
+    }
+
+
+    const circle =
+      document.createElement(
+        "div"
+      );
+
+
+    circle.className =
+      "badge-circle";
+
+
+    const inner =
+      document.createElement(
+        "div"
+      );
+
+
+    inner.className =
+      "badge-inner";
+
+
+    const number =
+      document.createElement(
+        "div"
+      );
+
+
+    number.className =
+      "badge-number";
+
+
+    number.textContent =
+      formatNumber(
+        badge.value
+      );
+
+
+    const label =
+      document.createElement(
+        "div"
+      );
+
+
+    label.className =
+      "badge-label";
+
+
+    label.textContent =
+      "Radha Jap Completed";
+
+
+    inner.appendChild(number);
+
+    inner.appendChild(label);
+
+    circle.appendChild(inner);
+
+
+    if (!unlocked) {
+
+      const lock =
+        document.createElement(
+          "div"
+        );
+
+      lock.className =
+        "lock-icon";
+
+      lock.textContent =
+        "🔒";
+
+      circle.appendChild(lock);
+
+    }
+
+
+    const name =
+      document.createElement(
+        "div"
+      );
+
+
+    name.className =
+      "badge-name";
+
+
+    name.textContent =
+      badge.name;
+
+
+    const status =
+      document.createElement(
+        "div"
+      );
+
+
+    status.className =
+      "badge-status";
+
+
+    status.textContent =
+      unlocked
+        ? "Unlocked!"
+        : "Locked";
+
+
+    card.appendChild(circle);
+
+    card.appendChild(name);
+
+    card.appendChild(status);
+
+
+    grid.appendChild(card);
+
+  });
+
+
+  document.getElementById(
+    "unlockedCount"
+  ).textContent =
+    unlockedCount;
+
+}
+
+
+/* =========================
+   CHECK BADGES
+========================= */
+
+function checkBadges() {
+
+  badges.forEach(function(badge) {
+
+    if (
+      totalJap >= badge.value &&
+      !unlockedBadges.includes(
+        badge.value
+      )
+    ) {
+
+      unlockedBadges.push(
+        badge.value
+      );
+
+
+      localStorage.setItem(
+        "radheUnlockedBadges",
+        JSON.stringify(
+          unlockedBadges
+        )
+      );
+
+
+      showBadgePopup(badge);
+
+    }
+
+  });
+
+
+  renderBadges();
+
+}
+
+
+/* =========================
+   BADGE POPUP
+========================= */
+
+function showBadgePopup(badge) {
+
+  document.getElementById(
+    "popupMessage"
+  ).textContent =
+    formatNumber(
+      badge.value
+    ) +
+    " Radha Jap Completed! 🌸";
+
+
+  document
+    .getElementById(
+      "badgePopup"
+    )
+    .classList.add("show");
+
+}
+
+
+function closeBadgePopup() {
+
+  document
+    .getElementById(
+      "badgePopup"
+    )
+    .classList.remove("show");
+
+}
+
+
+/* =========================
+   TARGET SELECTION
+========================= */
+
+function selectTarget(value) {
+
+  selectedTarget = value;
+
+  document.getElementById(
+    "customTarget"
+  ).value = value;
+
+}
+
+
+/* =========================
+   START UNLIMITED
+========================= */
+
+function startUnlimited() {
+
+  mode = "unlimited";
+
+  target = null;
+
+  count = 0;
+
+  updateChantScreen();
+
+  showScreen("chantScreen");
+
+}
+
+
+/* =========================
+   START TARGETED
+========================= */
+
+function startTargeted() {
+
+  let custom =
+    document.getElementById(
+      "customTarget"
+    ).value;
+
+
+  if (custom !== "") {
+
+    selectedTarget =
+      Number(custom);
+
+  }
+
+
+  if (
+    !selectedTarget ||
+    selectedTarget < 1
+  ) {
+
+    alert(
+      "Please choose a valid target."
+    );
+
+    return;
+
+  }
+
+
+  mode = "targeted";
+
+  target = selectedTarget;
+
+  count = 0;
+
+  updateChantScreen();
+
+  showScreen("chantScreen");
+
+}
+
+
+/* =========================
+   UPDATE CHANT SCREEN
+========================= */
+
+function updateChantScreen() {
+
+  document.getElementById(
+    "count"
+  ).textContent =
+    count;
+
+
+  let mala =
+    Math.floor(
+      totalJap / 108
+    );
+
+
+  document.getElementById(
+    "mala"
+  ).textContent =
+    "📿 Mala: " +
+    mala;
+
+
+  if (mode === "unlimited") {
+
+    document.getElementById(
+      "targetInfo"
+    ).textContent =
+      "♾️ Unlimited Jap";
+
+  } else {
+
+    document.getElementById(
+      "targetInfo"
+    ).textContent =
+      "🎯 Target: " +
+      target;
+
+  }
+
+}
+
+
+/* =========================
+   CHANT
+========================= */
+
+function handleChant(event) {
+
+  if (
+    event.target.closest(
+      ".top-button"
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  if (
+    mode === "targeted" &&
+    count >= target
+  ) {
+
+    return;
+
+  }
+
+
+  count++;
+
+  totalJap++;
+
+
+  localStorage.setItem(
+    "radheTotalJap",
+    totalJap
+  );
+
+
+  updateChantScreen();
+
+
+  showRadha(
+    event.clientX,
+    event.clientY
+  );
+
+
+  playTapSound();
+
+
+  if (
+    totalJap % 108 === 0
+  ) {
+
+    flowerCelebration();
+
+  }
+
+
+  checkBadges();
+
+
+  if (
+    mode === "targeted" &&
+    count === target
+  ) {
+
+    setTimeout(function() {
+
+      alert(
+        "🌸 " +
+        target +
+        " Jap Completed! 🙏"
+      );
+
+    }, 500);
+
+  }
+
+}
+
+
+/* =========================
+   RADHA ANIMATION
+========================= */
+
+function showRadha(x, y) {
+
+  let radha =
+    document.createElement(
+      "div"
+    );
+
+
+  radha.className =
+    "floating-radha";
+
+
+  radha.textContent =
+    "राधा";
+
+
+  radha.style.left =
+    (x - 25) + "px";
+
+
+  radha.style.top =
+    (y - 25) + "px";
+
+
+  document.body.appendChild(
+    radha
+  );
+
+
+  setTimeout(function() {
+
+    radha.remove();
+
+  }, 3000);
+
+}
+
+
+/* =========================
+   TAP SOUND
+========================= */
+
+function playTapSound() {
+
+  let AudioContext =
+    window.AudioContext ||
+    window.webkitAudioContext;
+
+
+  if (!AudioContext) {
+
+    return;
+
+  }
+
+
+  let audio =
+    new AudioContext();
+
+
+  let oscillator =
+    audio.createOscillator();
+
+
+  let gain =
+    audio.createGain();
+
+
+  oscillator.type =
+    "sine";
+
+
+  oscillator.frequency.value =
+    520;
+
+
+  gain.gain.setValueAtTime(
+    0.12,
+    audio.currentTime
+  );
+
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.001,
+    audio.currentTime + 0.15
+  );
+
+
+  oscillator.connect(gain);
+
+  gain.connect(
+    audio.destination
+  );
+
+
+  oscillator.start();
+
+  oscillator.stop(
+    audio.currentTime + 0.15
+  );
+
+}
+
+
+/* =========================
+   FLOWER CELEBRATION
+========================= */
+
+function flowerCelebration() {
+
+  let flowers = [
+    "🌸",
+    "🌺",
+    "🌼",
+    "🌷",
+    "💮"
+  ];
+
+
+  for (
+    let i = 0;
+    i < 18;
+    i++
+  ) {
+
+    let flower =
+      document.createElement(
+        "div"
+      );
+
+
+    flower.className =
+      "flower";
+
+
+    flower.textContent =
+      flowers[
+        Math.floor(
+          Math.random() *
+          flowers.length
+        )
+      ];
+
+
+    flower.style.left =
+      (Math.random() * 100) +
+      "%";
+
+
+    flower.style.top =
+      (Math.random() * 100) +
+      "%";
+
+
+    document.body.appendChild(
+      flower
+    );
+
+
+    setTimeout(function() {
+
+      flower.remove();
+
+    }, 3000);
+
+  }
+
+}
+
+
+/* =========================
+   SAVE SESSION
+========================= */
+
+function saveSession() {
+
+  localStorage.setItem(
+    "radheSavedCount",
+    count
+  );
+
+
+  localStorage.setItem(
+    "radheTotalJap",
+    totalJap
+  );
+
+
+  alert(
+    "🌸 Jap progress saved!"
+  );
+
+}
+
+
+/* =========================
+   STARTUP
+========================= */
+
+renderBadges();
+
+</script>
+
+</body>
+  </html>
