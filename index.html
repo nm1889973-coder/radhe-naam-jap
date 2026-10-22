@@ -1,84 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>Radhe Naam Jap</title>
+<title>Radhe Naam Jap Counter</title>
 
 <style>
-
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: white;
-  overflow-x: hidden;
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#111;
+  color:white;
+  overflow-x:hidden;
 }
 
-.screen {
-  min-height: 100vh;
-  width: 100%;
-  display: none;
+button{
+  cursor:pointer;
 }
 
-.screen.active {
-  display: flex;
+.screen{
+  min-height:100vh;
+  width:100%;
+  display:none;
+}
+
+.screen.active{
+  display:flex;
 }
 
 /* =========================
-   WELCOME
+   COMMON BACKGROUND
 ========================= */
 
-#welcomeScreen {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
+.bg{
   background:
     linear-gradient(
-      rgba(0,0,0,0.4),
-      rgba(0,0,0,0.55)
+      rgba(0,0,0,.42),
+      rgba(0,0,0,.62)
     ),
     url("god-wallpaper.jpg")
     center/cover no-repeat;
 }
 
-.welcome-box {
-  padding: 30px;
-  max-width: 430px;
-  width: 100%;
+/* =========================
+   HOME
+========================= */
+
+#welcomeScreen{
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
-.welcome-title {
-  font-size: 42px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-shadow: 0 2px 8px black;
+.welcome-box{
+  width:92%;
+  max-width:430px;
+  padding:25px;
 }
 
-.welcome-subtitle {
-  font-size: 20px;
-  margin-bottom: 25px;
-  text-shadow: 0 2px 8px black;
+.welcome-title{
+  font-size:44px;
+  font-weight:bold;
+  text-shadow:0 2px 10px black;
 }
 
-.main-button {
-  width: 280px;
-  max-width: 90%;
-  padding: 16px;
-  margin: 7px;
-  border: none;
-  border-radius: 15px;
-  font-size: 18px;
-  font-weight: bold;
+.welcome-subtitle{
+  font-size:20px;
+  margin:8px 0 25px;
+  text-shadow:0 2px 8px black;
+}
+
+.main-button{
+  width:100%;
+  padding:17px;
+  margin:7px 0;
+  border:0;
+  border-radius:16px;
+  font-size:19px;
+  font-weight:bold;
 }
 
 /* =========================
@@ -86,361 +90,384 @@ body {
 ========================= */
 
 #modeScreen,
-#targetScreen {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.45),
-      rgba(0,0,0,0.6)
-    ),
-    url("god-wallpaper.jpg")
-    center/cover no-repeat;
+#targetScreen{
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
 .mode-box,
-.target-box {
-  max-width: 450px;
-  padding: 25px;
-  width: 100%;
+.target-box{
+  width:92%;
+  max-width:450px;
 }
 
 .mode-title,
-.target-title {
-  font-size: 30px;
-  margin-bottom: 25px;
+.target-title{
+  font-size:30px;
+  margin-bottom:25px;
 }
 
-.mode-button {
-  display: block;
-  width: 280px;
-  margin: 15px auto;
-  padding: 20px;
-  border: none;
-  border-radius: 18px;
-  font-size: 21px;
-  font-weight: bold;
+.mode-button{
+  display:block;
+  width:100%;
+  padding:20px;
+  margin:14px 0;
+  border:0;
+  border-radius:18px;
+  font-size:21px;
+  font-weight:bold;
 }
 
-.mode-description {
-  font-size: 14px;
-  margin-top: 5px;
+.mode-description{
+  font-size:14px;
+  margin-top:6px;
 }
 
-.target-button {
-  padding: 12px 18px;
-  margin: 5px;
-  border: none;
-  border-radius: 10px;
-  font-size: 17px;
+.target-button{
+  padding:13px 18px;
+  margin:5px;
+  border:0;
+  border-radius:10px;
+  font-size:17px;
 }
 
-#customTarget {
-  width: 220px;
-  padding: 13px;
-  margin: 15px;
-  border-radius: 10px;
-  border: none;
-  font-size: 18px;
-  text-align: center;
+#customTarget{
+  width:90%;
+  padding:14px;
+  margin:15px;
+  border:0;
+  border-radius:10px;
+  font-size:18px;
+  text-align:center;
 }
 
-#startTargetButton {
-  display: block;
-  margin: 10px auto;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 14px;
-  font-size: 20px;
-  font-weight: bold;
+#startTargetButton{
+  display:block;
+  margin:10px auto;
+  padding:15px 30px;
+  border:0;
+  border-radius:14px;
+  font-size:19px;
+  font-weight:bold;
 }
 
 /* =========================
    CHANT
 ========================= */
 
-#chantScreen {
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.3),
-      rgba(0,0,0,0.5)
-    ),
-    url("god-wallpaper.jpg")
-    center/cover no-repeat;
+#chantScreen{
+  position:relative;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
-#chantArea {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  user-select: none;
-  touch-action: manipulation;
+#chantArea{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  user-select:none;
+  touch-action:manipulation;
 }
 
-.chant-title {
-  font-size: 35px;
-  text-shadow: 0 2px 8px black;
+.chant-title{
+  font-size:36px;
+  text-shadow:0 2px 8px black;
 }
 
-#count {
-  font-size: 50px;
-  font-weight: bold;
-  text-shadow: 0 2px 8px black;
-  margin: 10px;
+#count{
+  font-size:55px;
+  font-weight:bold;
+  margin:10px;
+  text-shadow:0 2px 8px black;
 }
 
 #mala,
-#targetInfo,
-#tapMessage {
-  text-shadow: 0 2px 8px black;
-  margin: 5px;
+#targetInfo{
+  font-size:19px;
+  margin:5px;
+  text-shadow:0 2px 8px black;
 }
 
-#mala {
-  font-size: 23px;
+#tapMessage{
+  margin-top:20px;
+  font-size:17px;
+  text-shadow:0 2px 8px black;
 }
 
-#targetInfo {
-  font-size: 18px;
+.top-button{
+  position:fixed;
+  top:14px;
+  z-index:20;
+  padding:10px 14px;
+  border:0;
+  border-radius:10px;
+  font-size:14px;
 }
 
-#tapMessage {
-  font-size: 18px;
-  margin-top: 20px;
+#backButton{
+  left:14px;
 }
 
-.top-button {
-  position: fixed;
-  top: 15px;
-  z-index: 20;
-
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10px;
-  font-size: 15px;
+#saveButton{
+  right:14px;
 }
 
-#saveButton {
-  right: 15px;
-}
-
-#achievementButton {
-  right: 85px;
-}
-
-#backButton {
-  left: 15px;
+#achievementButton{
+  right:85px;
 }
 
 /* =========================
-   PROGRESS SCREEN
+   RADHA
 ========================= */
 
-#progressScreen {
-  min-height: 100vh;
-  background:
-    linear-gradient(
-      rgba(0,0,0,0.5),
-      rgba(0,0,0,0.7)
-    ),
-    url("god-wallpaper.jpg")
-    center/cover fixed no-repeat;
-
-  padding: 20px 15px 40px;
-  overflow-y: auto;
+.floating-radha{
+  position:fixed;
+  z-index:30;
+  font-size:30px;
+  font-weight:bold;
+  pointer-events:none;
+  animation:fadeRadha 3s ease-out forwards;
+  text-shadow:0 2px 8px black;
 }
 
-#progressScreen.active {
-  display: block;
+@keyframes fadeRadha{
+  0%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+  60%{
+    opacity:.7;
+    transform:translateY(-45px) scale(1.05);
+  }
+  100%{
+    opacity:0;
+    transform:translateY(-90px) scale(1.1);
+  }
 }
 
-.progress-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
+/* =========================
+   FLOWERS
+========================= */
+
+.flower{
+  position:fixed;
+  z-index:50;
+  font-size:35px;
+  pointer-events:none;
+  animation:flowerSpread 3s ease-out forwards;
 }
 
-.progress-back {
-  border: none;
-  background: transparent;
-  color: white;
-  font-size: 36px;
+@keyframes flowerSpread{
+  0%{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(0);
+  }
+  30%{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+  }
+  100%{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(2.5);
+  }
 }
 
-.progress-title {
-  font-size: 29px;
-  font-weight: bold;
+/* =========================
+   PROGRESS
+========================= */
+
+#progressScreen,
+#historyScreen,
+#achievementScreen{
+  display:none;
+  min-height:100vh;
+  background:#080808;
+  padding:20px 15px 40px;
+  overflow-y:auto;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  max-width: 650px;
-  margin: auto;
+#progressScreen.active,
+#historyScreen.active,
+#achievementScreen.active{
+  display:block;
 }
 
-.stat-card {
-  padding: 18px 10px;
-  border-radius: 18px;
-  text-align: center;
-  background: rgba(0,0,0,0.65);
-  border: 1px solid rgba(255,255,255,0.2);
+.page-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
 }
 
-.stat-icon {
-  font-size: 27px;
+.page-back{
+  border:0;
+  background:transparent;
+  color:white;
+  font-size:35px;
 }
 
-.stat-number {
-  font-size: 27px;
-  font-weight: bold;
-  margin-top: 5px;
+.page-title{
+  font-size:28px;
+  font-weight:bold;
 }
 
-.stat-label {
-  font-size: 13px;
-  color: #ddd;
-  margin-top: 5px;
+.progress-container,
+.history-container,
+.badge-container{
+  width:100%;
+  max-width:700px;
+  margin:auto;
 }
 
-.section-title {
-  max-width: 650px;
-  margin: 28px auto 12px;
-  font-size: 22px;
-  font-weight: bold;
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
 }
 
-.history-box {
-  max-width: 650px;
-  margin: auto;
-  background: rgba(0,0,0,0.65);
-  border-radius: 18px;
-  overflow: hidden;
+.stat-card{
+  background:#181818;
+  border-radius:18px;
+  padding:20px 10px;
+  text-align:center;
+  border:1px solid #333;
 }
 
-.history-row {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  padding: 14px 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-  text-align: center;
+.stat-icon{
+  font-size:30px;
 }
 
-.history-row:last-child {
-  border-bottom: none;
+.stat-number{
+  font-size:26px;
+  font-weight:bold;
+  margin-top:7px;
 }
 
-.history-head {
-  font-weight: bold;
-  background: rgba(255,255,255,0.08);
+.stat-label{
+  color:#aaa;
+  margin-top:5px;
 }
 
-.no-history {
-  padding: 25px;
-  text-align: center;
-  color: #ccc;
+.progress-card{
+  background:#181818;
+  border-radius:18px;
+  padding:20px;
+  margin-top:15px;
+  border:1px solid #333;
+}
+
+.progress-title{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.progress-bar{
+  width:100%;
+  height:18px;
+  background:#333;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#ffbd61,#ff6f91);
+  transition:.4s;
+}
+
+.progress-percent{
+  text-align:center;
+  margin-top:8px;
+  color:#ccc;
+}
+
+.action-button{
+  width:100%;
+  padding:15px;
+  margin-top:12px;
+  border:0;
+  border-radius:13px;
+  font-size:17px;
+  font-weight:bold;
+}
+
+/* =========================
+   HISTORY
+========================= */
+
+.history-item{
+  background:#181818;
+  border:1px solid #333;
+  border-radius:15px;
+  padding:15px;
+  margin:10px 0;
+}
+
+.history-date{
+  font-weight:bold;
+  font-size:18px;
+}
+
+.history-detail{
+  color:#bbb;
+  margin-top:5px;
+}
+
+.empty-history{
+  text-align:center;
+  color:#999;
+  padding:40px 10px;
 }
 
 /* =========================
    ACHIEVEMENTS
 ========================= */
 
-#achievementScreen {
-  display: none;
-  min-height: 100vh;
-  background: #050505;
-  padding: 20px 15px 40px;
-  overflow-y: auto;
+.achievement-subtitle{
+  color:#999;
+  margin:0 0 20px 48px;
 }
 
-#achievementScreen.active {
-  display: block;
+.badge-count{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:36px;
+  height:36px;
+  margin-left:5px;
+  border-radius:50%;
+  background:#392700;
+  color:#ffd34d;
 }
 
-.achievement-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 8px;
+.badge-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px 15px;
 }
 
-.achievement-back {
-  border: none;
-  background: transparent;
-  color: white;
-  font-size: 38px;
-  padding: 0 5px;
+.badge-card{
+  text-align:center;
 }
 
-.achievement-title {
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.badge-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 38px;
-  height: 38px;
-
-  margin-left: 5px;
-  border-radius: 50%;
-
-  background: #392700;
-  color: #ffd34d;
-
-  font-weight: bold;
-}
-
-.achievement-subtitle {
-  color: #999;
-  font-size: 16px;
-  margin: 5px 0 25px 55px;
-}
-
-.badge-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px 18px;
-  max-width: 700px;
-  margin: auto;
-}
-
-.badge-card {
-  text-align: center;
-  cursor: pointer;
-}
-
-.badge-circle {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  max-width: 190px;
-  margin: auto;
-  border-radius: 28px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-  overflow: hidden;
-
+.badge-circle{
+  width:100%;
+  aspect-ratio:1/1;
+  max-width:190px;
+  margin:auto;
+  border-radius:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
   background:
     radial-gradient(
       circle,
@@ -449,30 +476,21 @@ body {
       #ff8d6b 48%,
       #ff6090 100%
     );
-
   box-shadow:
     0 0 12px #ffbd55,
     0 0 30px #ff8c70;
-
-  border: 2px solid #ffd978;
+  border:2px solid #ffd978;
 }
 
-.badge-inner {
-  width: 76%;
-  height: 76%;
-
-  border-radius: 50%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-  z-index: 2;
-
-  border: 2px solid #ffeaa0;
-
+.badge-inner{
+  width:76%;
+  height:76%;
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border:2px solid #ffeaa0;
   background:
     radial-gradient(
       circle,
@@ -482,212 +500,112 @@ body {
     );
 }
 
-.badge-number {
-  font-size: clamp(22px, 6vw, 34px);
-  font-weight: bold;
-  color: #fff3bc;
-  text-shadow: 0 2px 5px #8b4a1f;
+.badge-number{
+  font-size:clamp(20px,6vw,34px);
+  font-weight:bold;
+  color:#fff3bc;
 }
 
-.badge-label {
-  font-size: 10px;
-  color: white;
-  margin-top: 5px;
+.badge-label{
+  font-size:10px;
+  color:white;
 }
 
-.badge-name {
-  margin-top: 10px;
-  font-size: 15px;
-  font-weight: bold;
+.badge-name{
+  margin-top:9px;
+  font-size:15px;
+  font-weight:bold;
 }
 
-.badge-status {
-  margin-top: 7px;
-  color: #d5a928;
-  font-weight: bold;
-  font-size: 14px;
+.badge-status{
+  margin-top:6px;
+  color:#d5a928;
+  font-size:14px;
 }
 
-.badge-card.locked {
-  opacity: 0.28;
-  filter: grayscale(0.8);
+.badge-card.locked{
+  opacity:.28;
+  filter:grayscale(.8);
 }
 
-.badge-card.locked .badge-circle {
-  box-shadow: none;
-}
-
-.lock-icon {
-  position: absolute;
-  z-index: 5;
-
-  right: 10px;
-  top: 10px;
-
-  background: #111c;
-  border-radius: 50%;
-
-  width: 35px;
-  height: 35px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.lock-icon{
+  position:absolute;
+  right:10px;
+  top:10px;
+  background:#111c;
+  border-radius:50%;
+  width:35px;
+  height:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 /* =========================
-   BADGE POPUP
+   POPUP
 ========================= */
 
-#badgePopup,
-#detailPopup {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-
-  display: none;
-
-  align-items: center;
-  justify-content: center;
-
-  background: rgba(0,0,0,0.82);
-
-  text-align: center;
+#badgePopup{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.82);
+  text-align:center;
 }
 
-#badgePopup.show,
-#detailPopup.show {
-  display: flex;
+#badgePopup.show{
+  display:flex;
 }
 
-.popup-box {
-  width: 88%;
-  max-width: 350px;
-  padding: 30px 20px;
-  border-radius: 25px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ffbd61,
-      #ff6f91
-    );
-
-  box-shadow:
-    0 0 30px #ffd36b,
-    0 0 80px #ff7e86;
+.popup-box{
+  width:88%;
+  max-width:350px;
+  padding:30px 20px;
+  border-radius:25px;
+  background:linear-gradient(145deg,#ffbd61,#ff6f91);
 }
 
-.popup-icon {
-  font-size: 55px;
+.popup-icon{
+  font-size:55px;
 }
 
-.popup-title {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 10px;
+.popup-title{
+  font-size:28px;
+  font-weight:bold;
+  margin:10px;
 }
 
-.popup-message {
-  font-size: 18px;
-  line-height: 1.5;
+.popup-message{
+  font-size:18px;
 }
 
-.popup-button {
-  margin-top: 20px;
-  padding: 13px 30px;
-
-  border: none;
-  border-radius: 15px;
-
-  font-size: 17px;
-  font-weight: bold;
+.popup-button{
+  margin-top:20px;
+  padding:13px 30px;
+  border:0;
+  border-radius:15px;
+  font-size:17px;
+  font-weight:bold;
 }
 
 /* =========================
-   RADHA
+   MOBILE
 ========================= */
 
-.floating-radha {
-  position: fixed;
-  z-index: 30;
-  font-size: 30px;
-  font-weight: bold;
-  pointer-events: none;
-  animation: fadeRadha 3s ease-out forwards;
-  text-shadow: 0 2px 8px black;
-}
+@media(max-width:420px){
 
-@keyframes fadeRadha {
-
-  0% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+  .badge-grid{
+    gap:20px 10px;
   }
 
-  60% {
-    opacity: 0.7;
-    transform: translateY(-45px) scale(1.05);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-90px) scale(1.1);
+  .page-title{
+    font-size:24px;
   }
 
 }
-
-/* =========================
-   FLOWERS
-========================= */
-
-.flower {
-  position: fixed;
-  z-index: 50;
-  font-size: 35px;
-  pointer-events: none;
-  animation: flowerSpread 3s ease-out forwards;
-}
-
-@keyframes flowerSpread {
-
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-  }
-
-  30% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(2.5);
-  }
-
-}
-
-@media (max-width: 420px) {
-
-  .badge-grid {
-    gap: 20px 12px;
-  }
-
-  .achievement-title {
-    font-size: 25px;
-  }
-
-  .stats-grid {
-    gap: 8px;
-  }
-
-  .stat-card {
-    padding: 14px 5px;
-  }
-
-}
-
 </style>
 </head>
 
@@ -697,7 +615,7 @@ body {
      HOME
 ========================= -->
 
-<div id="welcomeScreen" class="screen active">
+<div id="welcomeScreen" class="screen active bg">
 
   <div class="welcome-box">
 
@@ -709,33 +627,35 @@ body {
       Radhe Naam Jap Counter
     </div>
 
-    <button
-      class="main-button"
-      onclick="showModeScreen()">
+    <button class="main-button"
+            onclick="showModeScreen()">
       🙏 START JAP
     </button>
 
-    <button
-      class="main-button"
-      onclick="showProgress()">
-      📊 MY PROGRESS
-    </button>
-
-    <button
-      class="main-button"
-      onclick="showAchievements()">
+    <button class="main-button"
+            onclick="showAchievements()">
       🏆 MY ACHIEVEMENTS
     </button>
 
-  </div>
+    <button class="main-button"
+            onclick="showProgress()">
+      📊 MY PROGRESS
+    </button>
 
+    <button class="main-button"
+            onclick="showHistory()">
+      📜 JAP HISTORY
+    </button>
+
+  </div>
 </div>
+
 
 <!-- =========================
      MODE
 ========================= -->
 
-<div id="modeScreen" class="screen">
+<div id="modeScreen" class="screen bg">
 
   <div class="mode-box">
 
@@ -743,9 +663,8 @@ body {
       Choose Jap Mode
     </div>
 
-    <button
-      class="mode-button"
-      onclick="startUnlimited()">
+    <button class="mode-button"
+            onclick="startUnlimited()">
 
       ♾️ Unlimited Jap
 
@@ -755,9 +674,8 @@ body {
 
     </button>
 
-    <button
-      class="mode-button"
-      onclick="showTargetScreen()">
+    <button class="mode-button"
+            onclick="showTargetScreen()">
 
       🎯 Targeted Jap
 
@@ -767,15 +685,20 @@ body {
 
     </button>
 
-  </div>
+    <button class="action-button"
+            onclick="goHome()">
+      ← Back
+    </button>
 
+  </div>
 </div>
+
 
 <!-- =========================
      TARGET
 ========================= -->
 
-<div id="targetScreen" class="screen">
+<div id="targetScreen" class="screen bg">
 
   <div class="target-box">
 
@@ -784,93 +707,78 @@ body {
     </div>
 
     <button class="target-button"
-            onclick="selectTarget(11)">
-      11
-    </button>
+            onclick="selectTarget(11)">11</button>
 
     <button class="target-button"
-            onclick="selectTarget(21)">
-      21
-    </button>
+            onclick="selectTarget(21)">21</button>
 
     <button class="target-button"
-            onclick="selectTarget(51)">
-      51
-    </button>
+            onclick="selectTarget(51)">51</button>
 
     <button class="target-button"
-            onclick="selectTarget(108)">
-      108
-    </button>
+            onclick="selectTarget(108)">108</button>
 
     <button class="target-button"
-            onclick="selectTarget(1080)">
-      1080
-    </button>
+            onclick="selectTarget(1080)">1080</button>
 
-    <br>
+    <input id="customTarget"
+           type="number"
+           min="1"
+           placeholder="Enter custom target">
 
-    <input
-      id="customTarget"
-      type="number"
-      min="1"
-      placeholder="Enter custom target">
-
-    <button
-      id="startTargetButton"
-      onclick="startTargeted()">
+    <button id="startTargetButton"
+            onclick="startTargeted()">
       🌸 START TARGET
     </button>
 
-  </div>
+    <button class="action-button"
+            onclick="showModeScreen()">
+      ← Back
+    </button>
 
+  </div>
 </div>
+
 
 <!-- =========================
      CHANT
 ========================= -->
 
-<div id="chantScreen" class="screen">
+<div id="chantScreen" class="screen bg">
 
-  <button
-    id="backButton"
-    class="top-button"
-    onclick="goHome()">
+  <button id="backButton"
+          class="top-button"
+          onclick="goHome()">
     ← Back
   </button>
 
-  <button
-    id="achievementButton"
-    class="top-button"
-    onclick="showAchievements()">
+  <button id="achievementButton"
+          class="top-button"
+          onclick="showAchievements()">
     🏆
   </button>
 
-  <button
-    id="saveButton"
-    class="top-button"
-    onclick="saveSession()">
+  <button id="saveButton"
+          class="top-button"
+          onclick="saveSession()">
     💾 Save
   </button>
 
-  <div
-    id="chantArea"
-    onclick="handleChant(event)">
+  <div id="chantArea"
+       onclick="handleChant(event)">
 
     <div class="chant-title">
       🌸 राधे 🌸
     </div>
 
-    <div id="count">
-      0
-    </div>
+    <div id="count">0</div>
 
     <div id="mala">
       📿 Mala: 0
     </div>
 
     <div id="targetInfo">
-      ♾️ Unlimited
+      ♾️ Unlimited Jap
     </div>
 
     <div id="tapMessage">
@@ -878,8 +786,8 @@ body {
     </div>
 
   </div>
-
 </div>
+
 
 <!-- =========================
      PROGRESS
@@ -887,67 +795,116 @@ body {
 
 <div id="progressScreen">
 
-  <div class="progress-header">
+  <div class="page-header">
 
-    <button
-      class="progress-back"
-      onclick="closeProgress()">
-      ←
-    </button>
+    <button class="page-back"
+            onclick="goHome()">←</button>
 
-    <div class="progress-title">
+    <div class="page-title">
       📊 My Progress
     </div>
 
   </div>
 
-  <div class="stats-grid">
+  <div class="progress-container">
 
-    <div class="stat-card">
-      <div class="stat-icon">🙏</div>
-      <div id="todayJap" class="stat-number">0</div>
-      <div class="stat-label">Today's Jap</div>
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="stat-icon">🌸</div>
+        <div id="totalStat" class="stat-number">0</div>
+        <div class="stat-label">Total Jap</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div id="todayStat" class="stat-number">0</div>
+        <div class="stat-label">Today</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div id="yesterdayStat" class="stat-number">0</div>
+        <div class="stat-label">Yesterday</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🔥</div>
+        <div id="streakStat" class="stat-number">0</div>
+        <div class="stat-label">Day Streak</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">📿</div>
+        <div id="malaStat" class="stat-number">0</div>
+        <div class="stat-label">Malas</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🏆</div>
+        <div id="badgeStat" class="stat-number">0</div>
+        <div class="stat-label">Badges</div>
+      </div>
+
     </div>
 
-    <div class="stat-card">
-      <div class="stat-icon">🌅</div>
-      <div id="yesterdayJap" class="stat-number">0</div>
-      <div class="stat-label">Yesterday's Jap</div>
+    <div class="progress-card">
+
+      <div class="progress-title">
+        🌸 Today's Jap Progress
+      </div>
+
+      <div class="progress-bar">
+        <div id="todayProgressFill"
+             class="progress-fill">
+        </div>
+      </div>
+
+      <div id="todayProgressText"
+           class="progress-percent">
+        0%
+      </div>
+
     </div>
 
-    <div class="stat-card">
-      <div class="stat-icon">📿</div>
-      <div id="totalMala" class="stat-number">0</div>
-      <div class="stat-label">Total Mala</div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-icon">📈</div>
-      <div id="totalJapDisplay" class="stat-number">0</div>
-      <div class="stat-label">Total Jap</div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-icon">🔥</div>
-      <div id="currentStreak" class="stat-number">0</div>
-      <div class="stat-label">Current Streak</div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-icon">🏆</div>
-      <div id="bestStreak" class="stat-number">0</div>
-      <div class="stat-label">Best Streak</div>
-    </div>
+    <button class="action-button"
+            onclick="showHistory()">
+      📜 View Jap History
+    </button>
 
   </div>
-
-  <div class="section-title">
-    📅 Daily Jap History
-  </div>
-
-  <div id="historyBox" class="history-box"></div>
-
 </div>
+
+
+<!-- =========================
+     HISTORY
+========================= -->
+
+<div id="historyScreen">
+
+  <div class="page-header">
+
+    <button class="page-back"
+            onclick="showProgress()">←</button>
+
+    <div class="page-title">
+      📜 Jap History
+    </div>
+
+  </div>
+
+  <div class="history-container">
+
+    <div id="historyList"></div>
+
+    <button class="action-button"
+            onclick="clearHistory()">
+      🗑️ Clear History
+    </button>
+
+  </div>
+</div>
+
 
 <!-- =========================
      ACHIEVEMENTS
@@ -955,106 +912,63 @@ body {
 
 <div id="achievementScreen">
 
-  <div class="achievement-header">
+  <div class="page-header">
 
-    <button
-      class="achievement-back"
-      onclick="closeAchievements()">
-      ←
-    </button>
+    <button class="page-back"
+            onclick="goHome()">←</button>
 
-    <div class="achievement-title">
-
+    <div class="page-title">
       🏆 My Achievements
-
-      <span
-        id="unlockedCount"
-        class="badge-count">
-        0
-      </span>
-
+      <span id="unlockedCount"
+            class="badge-count">0</span>
     </div>
 
   </div>
 
   <div class="achievement-subtitle">
-    Tap any badge to see its details
+    Your Radha Jap achievements
   </div>
 
-  <div
-    id="badgeGrid"
-    class="badge-grid">
+  <div class="badge-container">
+    <div id="badgeGrid"
+         class="badge-grid">
+    </div>
   </div>
 
 </div>
 
+
 <!-- =========================
-     BADGE POPUP
+     POPUP
 ========================= -->
 
 <div id="badgePopup">
 
   <div class="popup-box">
 
-    <div class="popup-icon">
-      🏆
-    </div>
+    <div class="popup-icon">🏆</div>
 
     <div class="popup-title">
       Badge Unlocked!
     </div>
 
-    <div
-      id="popupMessage"
-      class="popup-message">
+    <div id="popupMessage"
+         class="popup-message">
     </div>
 
-    <button
-      class="popup-button"
-      onclick="closeBadgePopup()">
+    <button class="popup-button"
+            onclick="closeBadgePopup()">
       🌸 Continue Jap
     </button>
 
   </div>
-
 </div>
 
-<!-- =========================
-     DETAIL POPUP
-========================= -->
-
-<div id="detailPopup">
-
-  <div class="popup-box">
-
-    <div id="detailIcon" class="popup-icon">
-      🏆
-    </div>
-
-    <div
-      id="detailTitle"
-      class="popup-title">
-    </div>
-
-    <div
-      id="detailMessage"
-      class="popup-message">
-    </div>
-
-    <button
-      class="popup-button"
-      onclick="closeDetailPopup()">
-      Close
-    </button>
-
-  </div>
-
-</div>
 
 <script>
 
 /* =========================
-   APP VARIABLES
+   VARIABLES
 ========================= */
 
 let count = 0;
@@ -1062,212 +976,299 @@ let target = null;
 let mode = "unlimited";
 let selectedTarget = 108;
 
-/* =========================
-   BADGES
-========================= */
-
-const badges = [
-
-  { value: 1, name: "First Jap" },
-  { value: 108, name: "First Mala" },
-  { value: 1080, name: "Dedicated" },
-  { value: 2100, name: "Devotee" },
-  { value: 5004, name: "Bhakti" },
-  { value: 10008, name: "Sadhak" },
-  { value: 21006, name: "Seva" },
-  { value: 50000, name: "Maha Jap" },
-  { value: 100000, name: "Laksh Jap" },
-  { value: 216000, name: "Mahabhakt" },
-  { value: 300300, name: "Radha Naam Master" }
-
-];
-
-/* =========================
-   TOTAL JAP
-========================= */
-
 let totalJap =
   Number(localStorage.getItem("radheTotalJap")) || 0;
 
-/* =========================
-   DAILY HISTORY
-========================= */
-
-let dailyHistory =
+let history =
   JSON.parse(
-    localStorage.getItem("radheDailyHistory") || "{}"
+    localStorage.getItem("radheJapHistory") || "[]"
   );
-
-/* =========================
-   UNLOCKED BADGES
-========================= */
 
 let unlockedBadges =
   JSON.parse(
     localStorage.getItem("radheUnlockedBadges") || "[]"
   );
 
-/* =========================
-   DATE FUNCTIONS
-========================= */
-
-function getDateKey(date = new Date()) {
-
-  const year = date.getFullYear();
-
-  const month =
-    String(date.getMonth() + 1).padStart(2, "0");
-
-  const day =
-    String(date.getDate()).padStart(2, "0");
-
-  return year + "-" + month + "-" + day;
-
-}
-
-function getDateLabel(date) {
-
-  return date.toLocaleDateString(
-    "en-IN",
-    {
-      day: "numeric",
-      month: "short",
-      year: "numeric"
-    }
-  );
-
-}
-
-function getPreviousDate(date) {
-
-  const previous = new Date(date);
-
-  previous.setDate(
-    previous.getDate() - 1
-  );
-
-  return previous;
-
-}
 
 /* =========================
-   SAVE DATA
+   BADGES
 ========================= */
 
-function saveAllData() {
+const badges = [
 
-  localStorage.setItem(
-    "radheTotalJap",
-    String(totalJap)
-  );
+  {value:1,name:"First Jap"},
+  {value:108,name:"First Mala"},
+  {value:1080,name:"Dedicated"},
+  {value:2100,name:"Devotee"},
+  {value:5004,name:"Bhakti"},
+  {value:10008,name:"Sadhak"},
+  {value:21006,name:"Seva"},
+  {value:50000,name:"Maha Jap"},
+  {value:100000,name:"Laksh Jap"},
+  {value:216000,name:"Mahabhakt"},
+  {value:300300,name:"Radha Naam Master"}
 
-  localStorage.setItem(
-    "radheDailyHistory",
-    JSON.stringify(dailyHistory)
-  );
+];
 
-  localStorage.setItem(
-    "radheUnlockedBadges",
-    JSON.stringify(unlockedBadges)
-  );
-
-}
 
 /* =========================
    SCREEN CONTROL
 ========================= */
 
-function showScreen(id) {
+function hideAll(){
 
   document
     .querySelectorAll(".screen")
-    .forEach(function(screen) {
+    .forEach(screen=>{
       screen.classList.remove("active");
     });
+
+  document
+    .getElementById("achievementScreen")
+    .classList.remove("active");
+
+  document
+    .getElementById("progressScreen")
+    .classList.remove("active");
+
+  document
+    .getElementById("historyScreen")
+    .classList.remove("active");
+}
+
+
+function showScreen(id){
+
+  hideAll();
 
   document
     .getElementById(id)
     .classList.add("active");
+}
 
-  document
-    .getElementById("achievementScreen")
-    .classList.remove("active");
 
-  document
-    .getElementById("progressScreen")
-    .classList.remove("active");
+function goHome(){
+
+  showScreen("welcomeScreen");
 
 }
 
-function showModeScreen() {
+
+/* =========================
+   MODE
+========================= */
+
+function showModeScreen(){
+
   showScreen("modeScreen");
+
 }
 
-function showTargetScreen() {
+
+function showTargetScreen(){
+
   showScreen("targetScreen");
+
 }
 
-function goHome() {
-  showScreen("welcomeScreen");
-}
 
 /* =========================
-   PROGRESS SCREEN
+   TARGET
 ========================= */
 
-function showProgress() {
+function selectTarget(value){
 
-  document
-    .querySelectorAll(".screen")
-    .forEach(function(screen) {
-      screen.classList.remove("active");
-    });
+  selectedTarget=value;
 
-  document
-    .getElementById("achievementScreen")
-    .classList.remove("active");
-
-  document
-    .getElementById("progressScreen")
-    .classList.add("active");
-
-  renderProgress();
+  document.getElementById(
+    "customTarget"
+  ).value=value;
 
 }
 
-function closeProgress() {
 
-  showScreen("welcomeScreen");
+function startUnlimited(){
+
+  mode="unlimited";
+  target=null;
+  count=0;
+
+  updateChantScreen();
+
+  showScreen("chantScreen");
 
 }
+
+
+function startTargeted(){
+
+  let custom =
+    document.getElementById(
+      "customTarget"
+    ).value;
+
+  if(custom!==""){
+    selectedTarget=Number(custom);
+  }
+
+  if(
+    !selectedTarget ||
+    selectedTarget<1
+  ){
+
+    alert("Please choose a valid target.");
+
+    return;
+  }
+
+  mode="targeted";
+  target=selectedTarget;
+  count=0;
+
+  updateChantScreen();
+
+  showScreen("chantScreen");
+
+}
+
 
 /* =========================
-   PROGRESS CALCULATION
+   FORMAT
 ========================= */
 
-function getJapForDate(date) {
+function formatNumber(number){
 
-  const key = getDateKey(date);
+  return Number(number).toLocaleString("en-IN");
 
-  return Number(
-    dailyHistory[key] || 0
+}
+
+
+/* =========================
+   DATE
+========================= */
+
+function dateKey(date=new Date()){
+
+  const y=date.getFullYear();
+
+  const m=String(
+    date.getMonth()+1
+  ).padStart(2,"0");
+
+  const d=String(
+    date.getDate()
+  ).padStart(2,"0");
+
+  return `${y}-${m}-${d}`;
+
+}
+
+
+function displayDate(key){
+
+  const parts=key.split("-");
+
+  return `${parts[2]}/${parts[1]}/${parts[0]}`;
+
+}
+
+
+/* =========================
+   GET DAILY TOTAL
+========================= */
+
+function getDailyTotal(key){
+
+  return history
+    .filter(item=>item.date===key)
+    .reduce(
+      (sum,item)=>sum+Number(item.count),
+      0
+    );
+
+}
+
+
+/* =========================
+   TODAY
+========================= */
+
+function getToday(){
+
+  return getDailyTotal(
+    dateKey()
   );
 
 }
 
-function calculateCurrentStreak() {
 
-  let streak = 0;
+/* =========================
+   YESTERDAY
+========================= */
 
-  let date = new Date();
+function getYesterday(){
 
-  while (
-    getJapForDate(date) > 0
-  ) {
+  const yesterday=new Date();
+
+  yesterday.setDate(
+    yesterday.getDate()-1
+  );
+
+  return getDailyTotal(
+    dateKey(yesterday)
+  );
+
+}
+
+
+/* =========================
+   STREAK
+========================= */
+
+function getStreak(){
+
+  const dates=[
+    ...new Set(
+      history.map(item=>item.date)
+    )
+  ];
+
+  dates.sort().reverse();
+
+  if(dates.length===0){
+    return 0;
+  }
+
+  let check=new Date();
+
+  let todayKey=dateKey(check);
+
+  if(!dates.includes(todayKey)){
+
+    check.setDate(
+      check.getDate()-1
+    );
+
+    if(!dates.includes(dateKey(check))){
+      return 0;
+    }
+  }
+
+  let streak=0;
+
+  while(true){
+
+    const key=dateKey(check);
+
+    if(!dates.includes(key)){
+      break;
+    }
 
     streak++;
 
-    date = getPreviousDate(date);
+    check.setDate(
+      check.getDate()-1
+    );
 
   }
 
@@ -1275,217 +1276,386 @@ function calculateCurrentStreak() {
 
 }
 
-function calculateBestStreak() {
 
-  const keys =
-    Object.keys(dailyHistory)
-      .filter(function(key) {
-        return Number(dailyHistory[key]) > 0;
-      })
-      .sort();
+/* =========================
+   CHANT SCREEN
+========================= */
 
-  if (keys.length === 0) {
-    return 0;
+function updateChantScreen(){
+
+  document.getElementById(
+    "count"
+  ).textContent=
+    formatNumber(count);
+
+  document.getElementById(
+    "mala"
+  ).textContent=
+    "📿 Mala: "+
+    Math.floor(count/108);
+
+  if(mode==="unlimited"){
+
+    document.getElementById(
+      "targetInfo"
+    ).textContent=
+      "♾️ Unlimited Jap";
+
+  }else{
+
+    document.getElementById(
+      "targetInfo"
+    ).textContent=
+      "🎯 Target: "+
+      formatNumber(target);
+
   }
 
-  let best = 1;
-  let current = 1;
+}
 
-  for (let i = 1; i < keys.length; i++) {
 
-    const previous =
-      new Date(keys[i - 1]);
+/* =========================
+   CHANT
+========================= */
 
-    const currentDate =
-      new Date(keys[i]);
+function handleChant(event){
 
-    const difference =
-      Math.round(
-        (
-          currentDate - previous
-        ) /
-        (1000 * 60 * 60 * 24)
+  if(
+    event.target.closest(".top-button")
+  ){
+    return;
+  }
+
+  if(
+    mode==="targeted" &&
+    count>=target
+  ){
+    return;
+  }
+
+  count++;
+  totalJap++;
+
+  localStorage.setItem(
+    "radheTotalJap",
+    totalJap
+  );
+
+  updateChantScreen();
+
+  showRadha(
+    event.clientX,
+    event.clientY
+  );
+
+  playTapSound();
+
+  if(totalJap%108===0){
+    flowerCelebration();
+  }
+
+  checkBadges();
+
+  if(
+    mode==="targeted" &&
+    count===target
+  ){
+
+    setTimeout(()=>{
+
+      alert(
+        "🌸 "+
+        formatNumber(target)+
+        " Jap Completed! 🙏\n\nTap Save to record this session."
       );
 
-    if (difference === 1) {
-
-      current++;
-
-      if (current > best) {
-        best = current;
-      }
-
-    } else {
-
-      current = 1;
-
-    }
+    },300);
 
   }
 
-  return best;
-
 }
 
-/* =========================
-   RENDER PROGRESS
-========================= */
-
-function renderProgress() {
-
-  const today =
-    getJapForDate(
-      new Date()
-    );
-
-  const yesterday =
-    getJapForDate(
-      getPreviousDate(
-        new Date()
-      )
-    );
-
-  document.getElementById(
-    "todayJap"
-  ).textContent =
-    formatNumber(today);
-
-  document.getElementById(
-    "yesterdayJap"
-  ).textContent =
-    formatNumber(yesterday);
-
-  document.getElementById(
-    "totalJapDisplay"
-  ).textContent =
-    formatNumber(totalJap);
-
-  document.getElementById(
-    "totalMala"
-  ).textContent =
-    formatNumber(
-      Math.floor(totalJap / 108)
-    );
-
-  document.getElementById(
-    "currentStreak"
-  ).textContent =
-    calculateCurrentStreak();
-
-  document.getElementById(
-    "bestStreak"
-  ).textContent =
-    calculateBestStreak();
-
-  renderHistory();
-
-}
 
 /* =========================
-   HISTORY
+   SAVE SESSION
 ========================= */
 
-function renderHistory() {
+function saveSession(){
 
-  const box =
-    document.getElementById(
-      "historyBox"
+  if(count<=0){
+
+    alert(
+      "🙏 Please do some Jap before saving."
     );
-
-  box.replaceChildren();
-
-  const keys =
-    Object.keys(dailyHistory)
-      .filter(function(key) {
-        return Number(dailyHistory[key]) > 0;
-      })
-      .sort()
-      .reverse();
-
-  if (keys.length === 0) {
-
-    const empty =
-      document.createElement("div");
-
-    empty.className =
-      "no-history";
-
-    empty.textContent =
-      "No Jap history yet. Start chanting today! 🌸";
-
-    box.appendChild(empty);
 
     return;
 
   }
 
-  const header =
-    document.createElement("div");
+  const item={
 
-  header.className =
-    "history-row history-head";
+    date:dateKey(),
 
-  header.innerHTML =
-    "<div>Date</div>" +
-    "<div>Jap</div>" +
-    "<div>Mala</div>";
+    time:new Date().toLocaleTimeString(
+      "en-IN",
+      {
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    ),
 
-  box.appendChild(header);
+    count:count,
 
-  keys.forEach(function(key) {
+    mode:mode,
 
-    const date =
-      new Date(
-        key + "T00:00:00"
-      );
+    target:target
 
-    const jap =
-      Number(
-        dailyHistory[key]
-      );
+  };
 
-    const row =
+  history.unshift(item);
+
+  localStorage.setItem(
+    "radheJapHistory",
+    JSON.stringify(history)
+  );
+
+  localStorage.setItem(
+    "radheTotalJap",
+    totalJap
+  );
+
+  alert(
+    "🌸 "+
+    formatNumber(count)+
+    " Jap session saved!"
+  );
+
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function showProgress(){
+
+  hideAll();
+
+  document
+    .getElementById("progressScreen")
+    .classList.add("active");
+
+  updateProgress();
+
+}
+
+
+function updateProgress(){
+
+  const today=getToday();
+
+  const yesterday=getYesterday();
+
+  const streak=getStreak();
+
+  document.getElementById(
+    "totalStat"
+  ).textContent=
+    formatNumber(totalJap);
+
+  document.getElementById(
+    "todayStat"
+  ).textContent=
+    formatNumber(today);
+
+  document.getElementById(
+    "yesterdayStat"
+  ).textContent=
+    formatNumber(yesterday);
+
+  document.getElementById(
+    "streakStat"
+  ).textContent=
+    streak;
+
+  document.getElementById(
+    "malaStat"
+  ).textContent=
+    formatNumber(
+      Math.floor(totalJap/108)
+    );
+
+  const unlocked=badges.filter(
+    badge=>totalJap>=badge.value
+  ).length;
+
+  document.getElementById(
+    "badgeStat"
+  ).textContent=
+    unlocked;
+
+  /*
+    Daily progress target:
+    108 Jap = 100%
+    It continues to show 100% after 108.
+  */
+
+  const percentage=Math.min(
+    100,
+    Math.round(
+      (today/108)*100
+    )
+  );
+
+  document.getElementById(
+    "todayProgressFill"
+  ).style.width=
+    percentage+"%";
+
+  document.getElementById(
+    "todayProgressText"
+  ).textContent=
+    formatNumber(today)+
+    " / 108 Jap — "+
+    percentage+"%";
+
+}
+
+
+/* =========================
+   HISTORY PAGE
+========================= */
+
+function showHistory(){
+
+  hideAll();
+
+  document
+    .getElementById("historyScreen")
+    .classList.add("active");
+
+  renderHistory();
+
+}
+
+
+function renderHistory(){
+
+  const list=
+    document.getElementById(
+      "historyList"
+    );
+
+  list.replaceChildren();
+
+  if(history.length===0){
+
+    const empty=
       document.createElement("div");
 
-    row.className =
-      "history-row";
+    empty.className=
+      "empty-history";
 
-    row.innerHTML =
-      "<div>" +
-      getDateLabel(date) +
-      "</div>" +
+    empty.innerHTML=
+      "📜 No Jap history yet.<br><br>"+
+      "Complete a Jap session and tap 💾 Save.";
 
-      "<div>" +
-      formatNumber(jap) +
-      "</div>" +
+    list.appendChild(empty);
 
-      "<div>" +
-      formatNumber(
-        Math.floor(jap / 108)
-      ) +
-      "</div>";
+    return;
+  }
 
-    box.appendChild(row);
+  history.forEach(item=>{
+
+    const card=
+      document.createElement("div");
+
+    card.className=
+      "history-item";
+
+    let modeText=
+      item.mode==="targeted"
+      ? "🎯 Targeted Jap"
+      : "♾️ Unlimited Jap";
+
+    let targetText="";
+
+    if(
+      item.mode==="targeted" &&
+      item.target
+    ){
+
+      targetText=
+        " • Target: "+
+        formatNumber(item.target);
+
+    }
+
+    card.innerHTML=
+      `
+      <div class="history-date">
+        📅 ${displayDate(item.date)}
+      </div>
+
+      <div class="history-detail">
+        🕐 ${item.time}
+      </div>
+
+      <div class="history-detail">
+        🌸 ${formatNumber(item.count)} Jap
+        • ${modeText}${targetText}
+      </div>
+      `;
+
+    list.appendChild(card);
 
   });
 
 }
 
+
+/* =========================
+   CLEAR HISTORY
+========================= */
+
+function clearHistory(){
+
+  if(history.length===0){
+    return;
+  }
+
+  const answer=
+    confirm(
+      "Delete all saved Jap history?"
+    );
+
+  if(!answer){
+    return;
+  }
+
+  history=[];
+
+  localStorage.setItem(
+    "radheJapHistory",
+    JSON.stringify(history)
+  );
+
+  renderHistory();
+
+  alert(
+    "🗑️ Jap history cleared."
+  );
+
+}
+
+
 /* =========================
    ACHIEVEMENTS
 ========================= */
 
-function showAchievements() {
+function showAchievements(){
 
-  document
-    .querySelectorAll(".screen")
-    .forEach(function(screen) {
-      screen.classList.remove("active");
-    });
-
-  document
-    .getElementById("progressScreen")
-    .classList.remove("active");
+  hideAll();
 
   document
     .getElementById("achievementScreen")
@@ -1495,145 +1665,108 @@ function showAchievements() {
 
 }
 
-function closeAchievements() {
 
-  showScreen("welcomeScreen");
+function renderBadges(){
 
-}
-
-/* =========================
-   FORMAT
-========================= */
-
-function formatNumber(number) {
-
-  return Number(number)
-    .toLocaleString("en-IN");
-
-}
-
-/* =========================
-   RENDER BADGES
-========================= */
-
-function renderBadges() {
-
-  const grid =
+  const grid=
     document.getElementById(
       "badgeGrid"
     );
 
   grid.replaceChildren();
 
-  let unlockedCount = 0;
+  let unlockedCount=0;
 
-  badges.forEach(function(badge) {
+  badges.forEach(badge=>{
 
-    const unlocked =
-      totalJap >= badge.value;
+    const unlocked=
+      totalJap>=badge.value;
 
-    if (unlocked) {
+    if(unlocked){
       unlockedCount++;
     }
 
-    const card =
+    const card=
       document.createElement("div");
 
-    card.className =
+    card.className=
       "badge-card";
 
-    if (!unlocked) {
+    if(!unlocked){
       card.classList.add("locked");
     }
 
-    const circle =
+    const circle=
       document.createElement("div");
 
-    circle.className =
+    circle.className=
       "badge-circle";
 
-    const inner =
+    const inner=
       document.createElement("div");
 
-    inner.className =
+    inner.className=
       "badge-inner";
 
-    const number =
+    const number=
       document.createElement("div");
 
-    number.className =
+    number.className=
       "badge-number";
 
-    number.textContent =
-      formatNumber(
-        badge.value
-      );
+    number.textContent=
+      formatNumber(badge.value);
 
-    const label =
+    const label=
       document.createElement("div");
 
-    label.className =
+    label.className=
       "badge-label";
 
-    label.textContent =
+    label.textContent=
       "Radha Jap Completed";
 
     inner.appendChild(number);
     inner.appendChild(label);
     circle.appendChild(inner);
 
-    if (!unlocked) {
+    if(!unlocked){
 
-      const lock =
+      const lock=
         document.createElement("div");
 
-      lock.className =
+      lock.className=
         "lock-icon";
 
-      lock.textContent =
-        "🔒";
+      lock.textContent="🔒";
 
       circle.appendChild(lock);
 
     }
 
-    const name =
+    const name=
       document.createElement("div");
 
-    name.className =
+    name.className=
       "badge-name";
 
-    name.textContent =
+    name.textContent=
       badge.name;
 
-    const status =
+    const status=
       document.createElement("div");
 
-    status.className =
+    status.className=
       "badge-status";
 
-    status.textContent =
+    status.textContent=
       unlocked
-        ? "Unlocked!"
-        : "Locked";
+      ? "Unlocked!"
+      : "Locked";
 
     card.appendChild(circle);
     card.appendChild(name);
     card.appendChild(status);
-
-    /* Make every badge clickable */
-
-    card.addEventListener(
-      "click",
-      function() {
-
-        showBadgeDetails(
-          badge,
-          unlocked
-        );
-
-      }
-    );
 
     grid.appendChild(card);
 
@@ -1641,83 +1774,37 @@ function renderBadges() {
 
   document.getElementById(
     "unlockedCount"
-  ).textContent =
+  ).textContent=
     unlockedCount;
 
 }
 
-/* =========================
-   BADGE DETAILS
-========================= */
-
-function showBadgeDetails(
-  badge,
-  unlocked
-) {
-
-  document.getElementById(
-    "detailTitle"
-  ).textContent =
-    badge.name;
-
-  if (unlocked) {
-
-    document.getElementById(
-      "detailMessage"
-    ).textContent =
-      "🌸 Congratulations! " +
-      "You have completed " +
-      formatNumber(badge.value) +
-      " Radha Jap. 🙏";
-
-  } else {
-
-    document.getElementById(
-      "detailMessage"
-    ).textContent =
-      "🔒 Complete " +
-      formatNumber(badge.value) +
-      " total Radha Jap to unlock this badge. " +
-      "You currently have " +
-      formatNumber(totalJap) +
-      ".";
-
-  }
-
-  document
-    .getElementById("detailPopup")
-    .classList.add("show");
-
-}
-
-function closeDetailPopup() {
-
-  document
-    .getElementById("detailPopup")
-    .classList.remove("show");
-
-}
 
 /* =========================
    CHECK BADGES
 ========================= */
 
-function checkBadges() {
+function checkBadges(){
 
-  badges.forEach(function(badge) {
+  badges.forEach(badge=>{
 
-    if (
-      totalJap >= badge.value &&
+    if(
+      totalJap>=badge.value &&
       !unlockedBadges.includes(
         badge.value
       )
-    ) {
+    ){
 
       unlockedBadges.push(
         badge.value
       );
 
-      saveAllData();
+      localStorage.setItem(
+        "radheUnlockedBadges",
+        JSON.stringify(
+          unlockedBadges
+        )
+      );
 
       showBadgePopup(badge);
 
@@ -1729,18 +1816,19 @@ function checkBadges() {
 
 }
 
+
 /* =========================
    BADGE POPUP
 ========================= */
 
-function showBadgePopup(badge) {
+function showBadgePopup(badge){
 
   document.getElementById(
     "popupMessage"
-  ).textContent =
+  ).textContent=
     formatNumber(
       badge.value
-    ) +
+    )+
     " Radha Jap Completed! 🌸";
 
   document
@@ -1749,7 +1837,8 @@ function showBadgePopup(badge) {
 
 }
 
-function closeBadgePopup() {
+
+function closeBadgePopup(){
 
   document
     .getElementById("badgePopup")
@@ -1757,249 +1846,72 @@ function closeBadgePopup() {
 
 }
 
-/* =========================
-   TARGET
-========================= */
-
-function selectTarget(value) {
-
-  selectedTarget = value;
-
-  document.getElementById(
-    "customTarget"
-  ).value = value;
-
-}
-
-function startUnlimited() {
-
-  mode = "unlimited";
-
-  target = null;
-
-  count = 0;
-
-  updateChantScreen();
-
-  showScreen("chantScreen");
-
-}
-
-function startTargeted() {
-
-  let custom =
-    document.getElementById(
-      "customTarget"
-    ).value;
-
-  if (custom !== "") {
-    selectedTarget =
-      Number(custom);
-  }
-
-  if (
-    !selectedTarget ||
-    selectedTarget < 1
-  ) {
-
-    alert(
-      "Please choose a valid target."
-    );
-
-    return;
-
-  }
-
-  mode = "targeted";
-
-  target = selectedTarget;
-
-  count = 0;
-
-  updateChantScreen();
-
-  showScreen("chantScreen");
-
-}
-
-/* =========================
-   CHANT SCREEN
-========================= */
-
-function updateChantScreen() {
-
-  document.getElementById(
-    "count"
-  ).textContent =
-    formatNumber(count);
-
-  document.getElementById(
-    "mala"
-  ).textContent =
-    "📿 Mala: " +
-    formatNumber(
-      Math.floor(totalJap / 108)
-    );
-
-  if (mode === "unlimited") {
-
-    document.getElementById(
-      "targetInfo"
-    ).textContent =
-      "♾️ Unlimited Jap";
-
-  } else {
-
-    document.getElementById(
-      "targetInfo"
-    ).textContent =
-      "🎯 Target: " +
-      formatNumber(target);
-
-  }
-
-}
-
-/* =========================
-   CHANT
-========================= */
-
-function handleChant(event) {
-
-  if (
-    event.target.closest(".top-button")
-  ) {
-    return;
-  }
-
-  if (
-    mode === "targeted" &&
-    count >= target
-  ) {
-    return;
-  }
-
-  count++;
-  totalJap++;
-
-  /* Save today's count */
-
-  const todayKey =
-    getDateKey();
-
-  dailyHistory[todayKey] =
-    Number(
-      dailyHistory[todayKey] || 0
-    ) + 1;
-
-  saveAllData();
-
-  updateChantScreen();
-
-  showRadha(
-    event.clientX,
-    event.clientY
-  );
-
-  playTapSound();
-
-  if (
-    totalJap % 108 === 0
-  ) {
-
-    flowerCelebration();
-
-  }
-
-  checkBadges();
-
-  if (
-    mode === "targeted" &&
-    count === target
-  ) {
-
-    setTimeout(function() {
-
-      alert(
-        "🌸 " +
-        formatNumber(target) +
-        " Jap Completed! 🙏"
-      );
-
-    }, 500);
-
-  }
-
-}
 
 /* =========================
    RADHA
 ========================= */
 
-function showRadha(x, y) {
+function showRadha(x,y){
 
-  const radha =
+  const radha=
     document.createElement("div");
 
-  radha.className =
+  radha.className=
     "floating-radha";
 
-  radha.textContent =
-    "राधा";
+  radha.textContent="राधा";
 
-  radha.style.left =
-    (x - 25) + "px";
+  radha.style.left=
+    (x-25)+"px";
 
-  radha.style.top =
-    (y - 25) + "px";
+  radha.style.top=
+    (y-25)+"px";
 
-  document.body.appendChild(
-    radha
+  document.body.appendChild(radha);
+
+  setTimeout(
+    ()=>radha.remove(),
+    3000
   );
 
-  setTimeout(function() {
-    radha.remove();
-  }, 3000);
-
 }
+
 
 /* =========================
    SOUND
 ========================= */
 
-function playTapSound() {
+function playTapSound(){
 
-  const AudioContext =
+  const AudioContext=
     window.AudioContext ||
     window.webkitAudioContext;
 
-  if (!AudioContext) {
+  if(!AudioContext){
     return;
   }
 
-  const audio =
+  const audio=
     new AudioContext();
 
-  const oscillator =
+  const oscillator=
     audio.createOscillator();
 
-  const gain =
+  const gain=
     audio.createGain();
 
-  oscillator.type =
-    "sine";
+  oscillator.type="sine";
 
-  oscillator.frequency.value =
-    520;
+  oscillator.frequency.value=520;
 
   gain.gain.setValueAtTime(
-    0.12,
+    .12,
     audio.currentTime
   );
 
   gain.gain.exponentialRampToValueAtTime(
-    0.001,
-    audio.currentTime + 0.15
+    .001,
+    audio.currentTime+.15
   );
 
   oscillator.connect(gain);
@@ -2011,78 +1923,60 @@ function playTapSound() {
   oscillator.start();
 
   oscillator.stop(
-    audio.currentTime + 0.15
+    audio.currentTime+.15
   );
 
 }
+
 
 /* =========================
    FLOWERS
 ========================= */
 
-function flowerCelebration() {
+function flowerCelebration(){
 
-  const flowers = [
-    "🌸",
-    "🌺",
-    "🌼",
-    "🌷",
-    "💮"
+  const flowers=[
+    "🌸","🌺","🌼","🌷","💮"
   ];
 
-  for (
-    let i = 0;
-    i < 18;
+  for(
+    let i=0;
+    i<18;
     i++
-  ) {
+  ){
 
-    const flower =
+    const flower=
       document.createElement("div");
 
-    flower.className =
-      "flower";
+    flower.className="flower";
 
-    flower.textContent =
+    flower.textContent=
       flowers[
         Math.floor(
-          Math.random() *
+          Math.random()*
           flowers.length
         )
       ];
 
-    flower.style.left =
-      (Math.random() * 100) +
-      "%";
+    flower.style.left=
+      (Math.random()*100)+"%";
 
-    flower.style.top =
-      (Math.random() * 100) +
-      "%";
+    flower.style.top=
+      (Math.random()*100)+"%";
 
     document.body.appendChild(
       flower
     );
 
-    setTimeout(function() {
-      flower.remove();
-    }, 3000);
+    setTimeout(
+      ()=>flower.remove(),
+      3000
+    );
 
   }
 
 }
 
-/* =========================
-   SAVE SESSION
-========================= */
-
-function saveSession() {
-
-  saveAllData();
-
-  alert(
-    "🌸 Jap progress saved successfully!"
-  );
-
-}
 
 /* =========================
    STARTUP
