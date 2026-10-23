@@ -1,23 +1,23 @@
 {
-  "name": "Radhe Naam Jap",
-  "short_name": "Radhe Jap",
-  "description": "A simple Radhe Naam Jap app for chanting, tracking daily progress, building streaks and unlocking achievements.",
+  "name": "Radhe Naam Jap Counter - My App",
+  "short_name": "Radhe Jap Counter",
+  "id": "./radhe-naam-jap-counter",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#10002b",
-  "theme_color": "#7b2cbf",
-  "lang": "en",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "description": "A devotional Radhe Naam Jap counting application.",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
