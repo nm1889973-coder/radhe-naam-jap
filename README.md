@@ -1,6 +1,6 @@
-🌸 Radhe Naam Jap Counter
+🌸 Radhe Jap Counter
 
-A devotional Radhe Naam Jap Counter web app created as a learning project.
+A devotional Radhe Jap Counter web app created as a learning project.
 
 ✨ Features
 
