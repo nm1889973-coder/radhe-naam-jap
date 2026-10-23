@@ -1,14 +1,14 @@
 {
-  "name": "Radhe Naam Jap Counter - My App",
-  "short_name": "Radhe Jap Counter",
-  "id": "./radhe-naam-jap-counter",
+  "name": "Radhe Jap Counter",
+  "short_name": "Radhe Jap",
+  "id": "./radhe-jap-counter",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#111111",
   "theme_color": "#111111",
-  "description": "A devotional Radhe Naam Jap counting application.",
+  "description": "A devotional Radhe Jap counting application.",
   "icons": [
     {
       "src": "./icon-192.png",
